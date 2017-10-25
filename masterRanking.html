@@ -1,0 +1,154 @@
+<html>
+<head>
+
+  <title>Charts Test</title>
+  <meta charset="utf-8">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Content-Language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+
+
+  <style>
+
+  .chart-container{
+    padding-top: 20px;
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  </style>
+
+</head>
+
+<body>
+
+  <ul class="nav nav-tabs">
+    <li role="presentation"><a href="homePage.html">Home</a></li>
+    <li role="presentation" class="active"><a href="#">Master Rankings</a></li>
+    <li role="presentation"><a href="varianceRanking.html">Variance Rankings</a></li>
+    <li role="presentation"><a href="averageRanking.html">Average Score Rankings</a></li>
+  </ul>
+
+
+  <div class="chart-container">
+    <canvas id="masterChart"></canvas>
+  </div>
+
+
+  <!-- *** Master Chart *** -->
+
+  <script>
+    var ctx = document.getElementById('masterChart').getContext('2d');
+    Chart.defaults.global.animation.duration = 7000;
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'horizontalBar',
+
+    // The data for our dataset
+    data: {
+        labels: [
+          "Dak Prescott, Dal QB",
+          "Drew Brees, NO QB",
+          "Carson Wentz, Phi QB",
+          "Alex Smith, KC QB",
+          "Mike Evans, TB WR",
+          "Zach Ertz, Phi TE",
+          "Jarvis Landry, Mia WR",
+          "Kirk Cousins, Wsh QB",
+          "LeSean McCoy, Buf RB",
+          "DeAndre Hopkins, Hou WR",
+          "Matthew Stafford, Det QB",
+          "Devonta Freeman, Atl RB",
+          "Philip Rivers, LAC QB",
+          "Jared Goff, LAR QB",
+          "Le'Veon Bell, Pit RB",
+          "Antonio Brown, Pit WR",
+          "Christian McCaffrey, Car RB",
+          "Tom Brady, NE QB",
+          "Josh McCown, NYJ QB",
+          "Deshaun Watson, Hou QB",
+          "Tyreek Hill, KC WR",
+          "Todd Gurley II, LAR RB",
+          "Carlos Hyde, SF RB",
+          "Kareem Hunt, KC RB",
+          "Russell Wilson, Sea QB",
+          "A.J. Green, Cin WR",
+          "Jameis Winston, TB QB",
+          "Mark Ingram, NO RB",
+          "Carson Palmer*, Ari QB",
+          "Leonard Fournette, Jax RB"
+        ],
+        datasets: [{
+            label: "Ranking",
+            backgroundColor: 'rgb(93, 173, 226)',
+            borderColor: 'rgb(93, 173, 226)',
+            data: [
+              5.5,
+              9.5,
+              10,
+              10.5,
+              11,
+              11.5,
+              14,
+              15.5,
+              16,
+              16.5,
+              16.5,
+              18.5,
+              19.5,
+              19.5,
+              19.5,
+              21,
+              21,
+              22,
+              23.5,
+              24,
+              24.5,
+              24.5,
+              25,
+              25,
+              25,
+              25,
+              25,
+              25,
+              25.5,
+              26
+            ],
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+      scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }],
+        xAxes: [{
+            ticks: {
+                // beginAtZero: true
+                autoSkip: false
+            }
+        }]
+    }
+    }
+    });
+  </script>
+
+
+
+
+
+</body>
+
+
+
+
+</html>

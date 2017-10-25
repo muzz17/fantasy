@@ -1,0 +1,154 @@
+<html>
+<head>
+
+  <title>Charts Test</title>
+  <meta charset="utf-8">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Content-Language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+
+
+  <style>
+
+  .chart-container{
+    padding-top: 20px;
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  </style>
+
+</head>
+
+<body>
+
+  <ul class="nav nav-tabs">
+    <li role="presentation"><a href="homePage.html">Home</a></li>
+    <li role="presentation"><a href="masterRanking.html">Master Rankings</a></li>
+    <li role="presentation" class="active"><a href="#">Variance Rankings</a></li>
+    <li role="presentation"><a href="averageRanking.html">Average Score Rankings</a></li>
+  </ul>
+
+
+  <div class="chart-container">
+    <canvas id="varianceChart"></canvas>
+  </div>
+
+
+  <!-- *** Variance Chart *** -->
+
+  <script>
+    var ctx = document.getElementById('varianceChart').getContext('2d');
+    Chart.defaults.global.animation.duration = 6000;
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'horizontalBar',
+
+    // The data for our dataset
+    data: {
+        labels: [
+          "Zach Ertz, Phi TE",
+          "Drew Brees, NO QB",
+          "Mike Evans, TB WR",
+          "Jarvis Landry, Mia WR",
+          "Christian McCaffrey, Car RB",
+          "Jared Goff, LAR QB",
+          "Matthew Stafford, Det QB",
+          "Philip Rivers, LAC QB",
+          "Dak Prescott, Dal QB",
+          "Devonta Freeman, Atl RB",
+          "LeSean McCoy, Buf RB",
+          "Adam Thielen, Min WR",
+          "Josh McCown, NYJ QB",
+          "Carson Wentz, Phi QB",
+          "Carson Palmer*, Ari QB",
+          "Alex Smith, KC QB",
+          "Duke Johnson Jr., Cle RB",
+          "DeAndre Hopkins, Hou WR",
+          "Kirk Cousins, Wsh QB",
+          "Carlos Hyde, SF RB",
+          "Blake Bortles, Jax QB",
+          "Mark Ingram, NO RB",
+          "Eli Manning, NYG QB",
+          "Tyreek Hill, KC WR",
+          "Jacoby Brissett, Ind QB",
+          "Chris Hogan, NE WR",
+          "Jameis Winston, TB QB",
+          "Davante Adams, GB WR",
+          "Brandin Cooks, NE WR",
+          "Travis Kelce, KC TE"
+        ],
+        datasets: [{
+            label: "Standard Deviation",
+            backgroundColor: 'rgb(72, 201, 176)',
+            borderColor: 'rgb(72, 201, 176)',
+            data: [
+              2.102185452,
+              3.551838335,
+              4.369750819,
+              4.765034686,
+              5.147220371,
+              5.282276875,
+              5.288246926,
+              5.35396096,
+              5.466158513,
+              5.481382632,
+              5.601091164,
+              5.934747214,
+              5.987572163,
+              5.990400484,
+              6.157557162,
+              6.271900405,
+              6.435551766,
+              6.451528673,
+              6.784705021,
+              6.92767299,
+              7.075395713,
+              7.283867257,
+              7.457197591,
+              7.52535849,
+              7.548293495,
+              7.616469802,
+              7.825315045,
+              7.933190418,
+              7.955360149,
+              8.075005529
+            ],
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+      scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }],
+        xAxes: [{
+            ticks: {
+                // beginAtZero: true
+                autoSkip: false
+            }
+        }]
+    }
+    }
+    });
+  </script>
+
+
+
+
+
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,154 @@
+<html>
+<head>
+
+  <title>Charts Test</title>
+  <meta charset="utf-8">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Content-Language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+
+
+  <style>
+
+  .chart-container{
+    padding-top: 20px;
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  </style>
+
+</head>
+
+<body>
+
+  <ul class="nav nav-tabs">
+    <li role="presentation"><a href="homePage.html">Home</a></li>
+    <li role="presentation"><a href="masterRanking.html">Master Rankings</a></li>
+    <li role="presentation"><a href="varianceRanking.html">Variance Rankings</a></li>
+    <li role="presentation" class="active"><a href="#">Average Score Rankings</a></li>
+  </ul>
+
+
+  <div class="chart-container">
+    <canvas id="averageChart"></canvas>
+  </div>
+
+
+  <!-- *** Average Chart *** -->
+
+  <script>
+    var ctx = document.getElementById('averageChart').getContext('2d');
+    Chart.defaults.global.animation.duration = 6000;
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'horizontalBar',
+
+    // The data for our dataset
+    data: {
+        labels: [
+        "Todd Gurley II, LAR RB",
+        "Dak Prescott, Dal QB",
+        "Kareem Hunt, KC RB",
+        "Deshaun Watson, Hou QB",
+        "Alex Smith, KC QB",
+        "Carson Wentz, Phi QB",
+        "Ezekiel Elliott, Dal RB",
+        "Le'Veon Bell, Pit RB",
+        "Antonio Brown, Pit WR",
+        "Tom Brady, NE QB",
+        "Russell Wilson, Sea QB",
+        "Kirk Cousins, Wsh QB",
+        "Melvin Gordon, LAC RB",
+        "Leonard Fournette, Jax RB",
+        "DeAndre Hopkins, Hou WR",
+        "Chris Thompson, Wsh RB",
+        "Drew Brees, NO QB",
+        "A.J. Green, Cin WR",
+        "Mike Evans, TB WR",
+        "Cam Newton, Car QB",
+        "LeSean McCoy, Buf RB",
+        "Zach Ertz, Phi TE",
+        "Jameis Winston, TB QB",
+        "Jarvis Landry, Mia WR",
+        "Tyreek Hill, KC WR",
+        "Matthew Stafford, Det QB",
+        "Devonta Freeman, Atl RB",
+        "Mark Ingram, NO RB",
+        "Larry Fitzgerald, Ari WR",
+        "Carlos Hyde, SF RB"
+        ],
+        datasets: [{
+            label: "Points",
+            backgroundColor: 'rgb(236, 112, 99)',
+            borderColor: 'rgb(236, 112, 99)',
+            data: [
+              23.28571429,
+              23.03333333,
+              22.74285714,
+              22.66666667,
+              22.45714286,
+              21.67142857,
+              21.43333333,
+              20.97142857,
+              20.92857143,
+              20.71428571,
+              20.43333333,
+              20.26666667,
+              19.02857143,
+              18.6,
+              18.53333333,
+              18.15,
+              18.03333333,
+              17.58333333,
+              17.31666667,
+              17.21428571,
+              16.83333333,
+              16.62857143,
+              16.46666667,
+              16.46666667,
+              16.24285714,
+              16.16666667,
+              16.06666667,
+              15.91666667,
+              15.77142857,
+              15.71428571
+            ],
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+      scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }],
+        xAxes: [{
+            ticks: {
+                // beginAtZero: true
+                autoSkip: false
+            }
+        }]
+    }
+    }
+    });
+  </script>
+
+
+
+
+
+</body>
+
+
+
+
+</html>

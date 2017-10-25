@@ -1,0 +1,384 @@
+<html>
+<head>
+
+  <title>Charts Test</title>
+  <meta charset="utf-8">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Content-Language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+
+
+  <style>
+
+    body {
+      background: url("stadium.jpg");
+      background-size: cover;
+    }
+
+    h1{
+      font-size: 50px !important;
+    }
+
+    .container{
+      padding-top: 20px;
+    }
+
+    .lead{
+      padding-top: 7px;
+      font-size: 16px !important;
+      /*background: rgba(93, 109, 126, 0.90);*/
+    }
+
+    .col-md-{
+      display: inline-block;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-3">Fantasy Football Player Rankings!</h1>
+      <p class="lead">This site ranks fantasy football players according to both the player's average weekly score and the player's weekly consistency.
+        <br><br>The variance ranking ranks players according to their standard deviation of weekly scores. Less variance means a more consistent player week to week.
+        <br><br>The scoring average ranking ranks players according to their average weekly score. A higher average score means a more productive player.
+        <br><br>The master ranking combines both the variance ranking and the average score ranking to find the most balanced players. The lower the number, the better the player. These players are the best combination of both consistency and production. On all charts, the best player for that particular chart is located at the top of the y-axis.
+        <br><br>Data last updated on Week 7.
+      </p>
+      <hr class="my-4">
+      <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
+      <p class="col-md-">
+        <a class="btn btn-primary btn-lg col-md-offset-15" href="masterRanking.html" role="button">Master Rankings</a>
+      </p>
+      <p class="col-md-">
+        <a class="btn btn-primary btn-lg col-md-offset-15" href="varianceRanking.html" role="button">Rankings from Variance</a>
+      </p>
+      <p class="col-md-">
+        <a class="btn btn-primary btn-lg" href="averageRanking.html" role="button">Rankings from Average</a>
+      </p>
+    </div>
+  </div>
+
+
+  <!-- *** Master Chart *** -->
+
+  <script>
+    var ctx = document.getElementById('masterChart').getContext('2d');
+    Chart.defaults.global.animation.duration = 6000;
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'horizontalBar',
+
+    // The data for our dataset
+    data: {
+        labels: [
+          "Dak Prescott, Dal QB",
+          "Drew Brees, NO QB",
+          "Carson Wentz, Phi QB",
+          "Alex Smith, KC QB",
+          "Mike Evans, TB WR",
+          "Zach Ertz, Phi TE",
+          "Jarvis Landry, Mia WR",
+          "Kirk Cousins, Wsh QB",
+          "LeSean McCoy, Buf RB",
+          "DeAndre Hopkins, Hou WR",
+          "Matthew Stafford, Det QB",
+          "Devonta Freeman, Atl RB",
+          "Philip Rivers, LAC QB",
+          "Jared Goff, LAR QB",
+          "Le'Veon Bell, Pit RB",
+          "Antonio Brown, Pit WR",
+          "Christian McCaffrey, Car RB",
+          "Tom Brady, NE QB",
+          "Josh McCown, NYJ QB",
+          "Deshaun Watson, Hou QB",
+          "Tyreek Hill, KC WR",
+          "Todd Gurley II, LAR RB",
+          "Carlos Hyde, SF RB",
+          "Kareem Hunt, KC RB",
+          "Russell Wilson, Sea QB",
+          "A.J. Green, Cin WR",
+          "Jameis Winston, TB QB",
+          "Mark Ingram, NO RB",
+          "Carson Palmer*, Ari QB",
+          "Leonard Fournette, Jax RB"
+        ],
+        datasets: [{
+            label: "Ranking",
+            backgroundColor: 'rgb(93, 173, 226)',
+            borderColor: 'rgb(93, 173, 226)',
+            data: [
+              5.5,
+              9.5,
+              10,
+              10.5,
+              11,
+              11.5,
+              14,
+              15.5,
+              16,
+              16.5,
+              16.5,
+              18.5,
+              19.5,
+              19.5,
+              19.5,
+              21,
+              21,
+              22,
+              23.5,
+              24,
+              24.5,
+              24.5,
+              25,
+              25,
+              25,
+              25,
+              25,
+              25,
+              25.5,
+              26
+            ],
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+      scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }],
+        xAxes: [{
+            ticks: {
+                // beginAtZero: true
+                autoSkip: false
+            }
+        }]
+    }
+    }
+    });
+  </script>
+
+  <!-- *** Variance Chart *** -->
+
+  <script>
+    var ctx = document.getElementById('varianceChart').getContext('2d');
+    Chart.defaults.global.animation.duration = 6000;
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'horizontalBar',
+
+    // The data for our dataset
+    data: {
+        labels: [
+          "Zach Ertz, Phi TE",
+          "Drew Brees, NO QB",
+          "Mike Evans, TB WR",
+          "Jarvis Landry, Mia WR",
+          "Christian McCaffrey, Car RB",
+          "Jared Goff, LAR QB",
+          "Matthew Stafford, Det QB",
+          "Philip Rivers, LAC QB",
+          "Dak Prescott, Dal QB",
+          "Devonta Freeman, Atl RB",
+          "LeSean McCoy, Buf RB",
+          "Adam Thielen, Min WR",
+          "Josh McCown, NYJ QB",
+          "Carson Wentz, Phi QB",
+          "Carson Palmer*, Ari QB",
+          "Alex Smith, KC QB",
+          "Duke Johnson Jr., Cle RB",
+          "DeAndre Hopkins, Hou WR",
+          "Kirk Cousins, Wsh QB",
+          "Carlos Hyde, SF RB",
+          "Blake Bortles, Jax QB",
+          "Mark Ingram, NO RB",
+          "Eli Manning, NYG QB",
+          "Tyreek Hill, KC WR",
+          "Jacoby Brissett, Ind QB",
+          "Chris Hogan, NE WR",
+          "Jameis Winston, TB QB",
+          "Davante Adams, GB WR",
+          "Brandin Cooks, NE WR",
+          "Travis Kelce, KC TE"
+        ],
+        datasets: [{
+            label: "Standard Deviation",
+            backgroundColor: 'rgb(72, 201, 176)',
+            borderColor: 'rgb(72, 201, 176)',
+            data: [
+              2.102185452,
+              3.551838335,
+              4.369750819,
+              4.765034686,
+              5.147220371,
+              5.282276875,
+              5.288246926,
+              5.35396096,
+              5.466158513,
+              5.481382632,
+              5.601091164,
+              5.934747214,
+              5.987572163,
+              5.990400484,
+              6.157557162,
+              6.271900405,
+              6.435551766,
+              6.451528673,
+              6.784705021,
+              6.92767299,
+              7.075395713,
+              7.283867257,
+              7.457197591,
+              7.52535849,
+              7.548293495,
+              7.616469802,
+              7.825315045,
+              7.933190418,
+              7.955360149,
+              8.075005529
+            ],
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+      scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }],
+        xAxes: [{
+            ticks: {
+                // beginAtZero: true
+                autoSkip: false
+            }
+        }]
+    }
+    }
+    });
+  </script>
+
+  <!-- *** Average Chart *** -->
+
+  <script>
+    var ctx = document.getElementById('averageChart').getContext('2d');
+    Chart.defaults.global.animation.duration = 6000;
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'horizontalBar',
+
+    // The data for our dataset
+    data: {
+        labels: [
+        "Todd Gurley II, LAR RB",
+        "Dak Prescott, Dal QB",
+        "Kareem Hunt, KC RB",
+        "Deshaun Watson, Hou QB",
+        "Alex Smith, KC QB",
+        "Carson Wentz, Phi QB",
+        "Ezekiel Elliott, Dal RB",
+        "Le'Veon Bell, Pit RB",
+        "Antonio Brown, Pit WR",
+        "Tom Brady, NE QB",
+        "Russell Wilson, Sea QB",
+        "Kirk Cousins, Wsh QB",
+        "Melvin Gordon, LAC RB",
+        "Leonard Fournette, Jax RB",
+        "DeAndre Hopkins, Hou WR",
+        "Chris Thompson, Wsh RB",
+        "Drew Brees, NO QB",
+        "A.J. Green, Cin WR",
+        "Mike Evans, TB WR",
+        "Cam Newton, Car QB",
+        "LeSean McCoy, Buf RB",
+        "Zach Ertz, Phi TE",
+        "Jameis Winston, TB QB",
+        "Jarvis Landry, Mia WR",
+        "Tyreek Hill, KC WR",
+        "Matthew Stafford, Det QB",
+        "Devonta Freeman, Atl RB",
+        "Mark Ingram, NO RB",
+        "Larry Fitzgerald, Ari WR",
+        "Carlos Hyde, SF RB"
+        ],
+        datasets: [{
+            label: "Points",
+            backgroundColor: 'rgb(236, 112, 99)',
+            borderColor: 'rgb(236, 112, 99)',
+            data: [
+              23.28571429,
+              23.03333333,
+              22.74285714,
+              22.66666667,
+              22.45714286,
+              21.67142857,
+              21.43333333,
+              20.97142857,
+              20.92857143,
+              20.71428571,
+              20.43333333,
+              20.26666667,
+              19.02857143,
+              18.6,
+              18.53333333,
+              18.15,
+              18.03333333,
+              17.58333333,
+              17.31666667,
+              17.21428571,
+              16.83333333,
+              16.62857143,
+              16.46666667,
+              16.46666667,
+              16.24285714,
+              16.16666667,
+              16.06666667,
+              15.91666667,
+              15.77142857,
+              15.71428571
+            ],
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+      scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }],
+        xAxes: [{
+            ticks: {
+                // beginAtZero: true
+                autoSkip: false
+            }
+        }]
+    }
+    }
+    });
+  </script>
+
+
+
+
+
+
+</body>
+
+
+
+
+</html>
